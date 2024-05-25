@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { MyContext } from '../../context/MyContext'
 import { Link, useNavigate } from 'react-router-dom';
-Link
+
 
 function Home() {
-    const { emp, edit, setEdit, items,myEdit,setMyEdit,deleteItem } = useContext(MyContext);
+    const { setEdit, items,setMyEdit,deleteItem } = useContext(MyContext);
     const navigate = useNavigate()
 
     const Edit = () => {
@@ -22,27 +22,13 @@ function Home() {
 
 
             <div className='bg-black text-white myFont  p-36 '>
-                {/* <h1 className='text-center text-2xl '>Welcome to Sahil Code</h1> */}
+               
 
                 <section className="mx-auto w-full max-w-7xl px-4 py-4">
                     <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
 
                         <h1 className='text-xl'>Welcome to ST FOX</h1>
-                        {/* <div>
-                            <h2 className="text-lg font-semibold">Employees</h2>
-                            <p className="mt-1 text-sm text-gray-700">
-                                This is a list of all employees. You can add new employees, edit or delete existing
-                                ones.
-                            </p>
-                        </div> */}
-                        {/* <div>
-                            <button
-                                type="button"
-                                className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                            >
-                                Add new employee
-                            </button>
-                        </div> */}
+                    
                     </div>
                     <div className="mt-6 flex flex-col">
                         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -51,12 +37,7 @@ function Home() {
                                     <table className="min-w-full w-full divide-y divide-gray-200">
                                         <thead className="bg-gray-50">
                                             <tr>
-                                                {/* <th
-                                                    scope="col"
-                                                    className="px-4 py-3.5 text-left text-sm font-normal text-gray-700"
-                                                >
-                                                    <span>Employee ID</span>
-                                                </th> */}
+                                             
                                                 <th
                                                     scope="col"
                                                     className="px-12 py-3.5 text-left text-sm font-normal text-gray-700"
@@ -65,7 +46,7 @@ function Home() {
                                                 </th>
                                                 <th
                                                     scope="col"
-                                                    className="px-12 py-3.5 text-left text-sm font-normal text-gray-700"
+                                                    className="px-8 py-3.5 text-left text-sm font-normal text-gray-700"
                                                 >
                                                     Contact
                                                 </th>
@@ -99,13 +80,14 @@ function Home() {
                                                         </div>
                                                     </td>
 
-                                                    <td className="whitespace-nowrap px-4  py-4 text-black">
+                                                    <td className="whitespace-nowrap px-4 text-left py-4 text-black">
                                                         {person.contact}
                                                     </td>
                                                     <td className="whitespace-nowrap px-4 py-4">
                                                         
                                                             <span  onClick={()=>{setMyEdit(person)
-                                                                navigate("/edit")
+                                                                navigate("/add")
+                                                                setEdit(true)
                                                             }} className="inline-flex rounded-full cursor-pointer bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
                                                                 Edit
                                                             </span>

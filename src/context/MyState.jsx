@@ -4,7 +4,6 @@ import { MyContext } from './MyContext'
 
 function MyState({ children }) {
   const  [myEdit,setMyEdit] = useState([]);
-  const [emp, setEmp] = useState([]);
   const [edit, setEdit] = useState(false);
 
   const [items, setItems] = useState([]);
@@ -24,7 +23,6 @@ function MyState({ children }) {
 
 
   return <MyContext.Provider value={{
-    emp, setEmp,
     edit, setEdit,
     items, addItem, updateItem, deleteItem,
     myEdit,setMyEdit

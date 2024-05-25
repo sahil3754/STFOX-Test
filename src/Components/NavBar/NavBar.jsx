@@ -1,45 +1,51 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { MyContext } from '../../context/MyContext'
 function NavBar() {
+    const { setEdit } = useContext(MyContext)
     const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+    const navigate = useNavigate()
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
     return (
         <div>
-         
+
 
             <div className="relative w-full bg-black text-white">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
-                    <div className="inline-flex items-center ">
+                    <div className="inline-flex items-center  cursor-pointer" onClick={()=> navigate("/")}>
 
                         <img src="https://staging-7c6d-classyinternet3.wpcomstaging.com/wp-content/uploads/2024/01/website-logo.png" alt="company Logo" width={160} />
                     </div>
-             
+
                     <div className="hidden lg:block ">
                         <ul className="ml-12 inline-flex space-x-8 text-xl myFont tracking-widest">
 
                             <li >
                                 <Link
                                     to={'/'}
-                                    className=" font-semibold  hover:text-gray-900"
+                                    className=" font-semibold  "
                                 >
                                     Home
                                 </Link>
                             </li>
-                            <li >
-                                <Link
-                                    to={'/add'}
-                                    className=" font-semibold  "
-                                >
-                                    Add
-                                </Link>
+                            <li onClick={() => {
+                                setEdit(false)
+                                navigate("/add")
+                            }}
+                                className='cursor-pointer
+                                '
+                            >
+
+                                Add
+
                             </li>
-                            
+
 
                         </ul>
-                     
+
                     </div>
                     <div className="lg:hidden">
                         <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -65,8 +71,8 @@ function NavBar() {
                                         </div>
                                     </div>
                                     <div className="mt-6">
-                                       
-                                        
+
+
                                     </div>
                                     <ul className="ml-15 inline-flex space-x-8 text-xl myFont tracking-widest">
 
@@ -78,22 +84,18 @@ function NavBar() {
                                                 Home
                                             </Link>
                                         </li>
-                                        <li >
-                                            <Link
-                                                to={'/'}
-                                                className=" font-semibold  "
-                                            >
-                                                Add
-                                            </Link>
+                                        <li onClick={() => {
+                                            setEdit(false)
+                                            navigate("/add")
+                                        }}
+                                            className='cursor-pointer
+                                '
+                                        >
+
+                                            Add
+
                                         </li>
-                                        <li >
-                                            <Link
-                                                to={'/'}
-                                                className=" font-semibold  "
-                                            >
-                                                Edit
-                                            </Link>
-                                        </li>
+                                        
 
                                     </ul>
                                 </div>
